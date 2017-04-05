@@ -14,6 +14,7 @@ public class AudioDataReceiver extends ModuleAbstract {
 	
 	public void exec() {
 		Data.addSample(this.getInputPortValue(0));
+		
 	}
 	
 	void saveAudioDataToWavFile(String name) {
@@ -35,5 +36,7 @@ public class AudioDataReceiver extends ModuleAbstract {
 	void playAudioData() {
 		Data.play();
 	}
+	
+
 	
 }
