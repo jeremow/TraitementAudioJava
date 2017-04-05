@@ -1,4 +1,3 @@
-
 public abstract class ModuleAbstract {
 	
 	static int SAMPLE_FREQ = 44100;
@@ -41,7 +40,19 @@ public abstract class ModuleAbstract {
 		return outputPorts[idOutputPort].getValue();
 	}
 	
-	void exec() {
-		
+	abstract void exec();
+	
+	public boolean equals(Object o) {
+		if (o instanceof ModuleAbstract) {
+			if(this.name.equals(((ModuleAbstract)(o)).name)) {
+				return true;
+			}
+		}
+		return false;
 	}
+	
+	public int hashCode() {
+		return this.name.hashCode();
+	}
+	
 }
