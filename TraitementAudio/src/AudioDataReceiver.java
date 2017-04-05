@@ -5,36 +5,33 @@ import phelmaaudio.WavFileException;
 
 public class AudioDataReceiver extends ModuleAbstract {
 	
-	public AudioData Data;
+	public AudioData data;
 	
 	public AudioDataReceiver() {
 		super("AudioDataReceiver", 1, 0);
-		
+		this.data = new AudioData();
 	}
 	
 	public void exec() {
-		Data.addSample(this.getInputPortValue(0));
-		
+		data.addSample(this.getInputPortValue(0));
 	}
 	
 	void saveAudioDataToWavFile(String name) {
 		try {
-			Data.saveAudioDataToWavFileNormalized(name);
+			data.saveAudioDataToWavFileNormalized(name);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (WavFileException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	void displayAudioDataWaveform() {
-		Data.display();
+		data.display();
 	}
 	
 	void playAudioData() {
-		Data.play();
+		data.play();
 	}
 	
 

@@ -10,6 +10,12 @@ public abstract class ModuleAbstract {
 		this.name = name;
 		this.inputPorts = new CommunicationPort[nbInputPort];
 		this.outputPorts = new CommunicationPort[nbOutputPort];
+		for(int i = 0; i < nbInputPort; i++) {
+			this.inputPorts[i] = new CommunicationPort(this,i);
+		}
+		for(int i = 0; i < nbOutputPort; i++) {
+			this.outputPorts[i] = new CommunicationPort(this,i);
+		}
 	}
 	
 	public String getName() {
@@ -22,8 +28,6 @@ public abstract class ModuleAbstract {
 	}
 	
 	public void setAndSendOutputPortValue(int idOutputPort, double sample) {
-		this.outputPorts[idOutputPort].setValue(sample);
-		
 		if (this.outputPorts[idOutputPort].isConnected()) {
 			this.outputPorts[idOutputPort].con.communicate();
 		}

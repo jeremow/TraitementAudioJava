@@ -3,7 +3,7 @@ public class GenSineBasic extends ModuleAbstract {
 	
 	private double f; //Fréquence de la sinusoïde
 	private double amp; // Amplitude de la sinusoïde 
-	private int n;
+	private int n; // Numéro de l'échantillon
 	
 
 	public GenSineBasic(double f, double amp) {
@@ -17,6 +17,10 @@ public class GenSineBasic extends ModuleAbstract {
 		double e = this.amp*Math.sin(2*Math.PI*this.f*this.n/SAMPLE_FREQ);
 		this.setAndSendOutputPortValue(0, e);
 		this.n += 1;
+	}
+	
+	int getNumSample(){
+		return this.n;
 	}
 	
     public static void main(String[] args) throws Exception {
