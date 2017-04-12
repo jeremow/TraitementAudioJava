@@ -8,12 +8,13 @@ public class AudioDataReceiver extends ModuleAbstract {
 	public AudioData data;
 	
 	public AudioDataReceiver() {
-		super("AudioDataReceiver", 1, 0);
+		super("AudioDataReceiver", 1, 1);
 		this.data = new AudioData();
 	}
 	
 	public void exec() {
 		data.addSample(this.getInputPortValue(0));
+		this.setAndSendOutputPortValue(0, getInputPortValue(0));
 	}
 	
 	void saveAudioDataToWavFile(String name) {

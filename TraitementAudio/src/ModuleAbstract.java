@@ -1,3 +1,4 @@
+
 public abstract class ModuleAbstract {
 	
 	static int SAMPLE_FREQ = 44100;
@@ -22,13 +23,15 @@ public abstract class ModuleAbstract {
 	}
 	
 	static Connexion connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort) {
-		Connexion Connex = new Connexion(mInput.inputPorts[idInputPort], mOutput.outputPorts[idOutputPort]);
+		Connexion Connex = new Connexion(mOutput.outputPorts[idOutputPort],mInput.inputPorts[idInputPort]);
 		return Connex;
 	}
 	
 	public void setAndSendOutputPortValue(int idOutputPort, double sample) {
+		
+		this.outputPorts[idOutputPort].setValue(sample);
 		if (this.outputPorts[idOutputPort].isConnected()) {
-			this.outputPorts[idOutputPort].con.communicate();
+			this.outputPorts[idOutputPort].getConnexion().communicate();
 		}
 	}
 	
@@ -54,5 +57,6 @@ public abstract class ModuleAbstract {
 	public int hashCode() {
 		return this.name.hashCode();
 	}
+	
 	
 }

@@ -1,10 +1,10 @@
 
 public class CommunicationPort {
 	
-	ModuleAbstract mod;
-	Connexion con; 
-	int idPort;
-	double sampleValue;
+	private ModuleAbstract mod;
+	private Connexion con; 
+	private int idPort;
+	private double sampleValue;
 	
 	CommunicationPort (ModuleAbstract mod , int idPort) {
 		this.mod = mod;
@@ -14,16 +14,19 @@ public class CommunicationPort {
 	public void setValue (double sampleValue) {
 		this.sampleValue = sampleValue;
 	}
-	
+
 	public double getValue() {
 		return this.sampleValue;
 	}
+	public Connexion getConnexion() {
+		return this.con;
+	}
+	public void setConnexion(Connexion con) {
+		this.con = con;
+	}
 	
 	public boolean isConnected() {
-		if (con == null) {
-			return false;
-		}
-		return true;
+		return con != null ;
 	}
 	
 }

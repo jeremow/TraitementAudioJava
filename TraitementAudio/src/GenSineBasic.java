@@ -23,7 +23,4 @@ public class GenSineBasic extends ModuleAbstract {
 		return this.n;
 	}
 	
-    public static void main(String[] args) throws Exception {
-    	
-    }
 }
