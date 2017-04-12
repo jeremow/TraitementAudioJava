@@ -24,10 +24,10 @@ public class CommunicationPort {
 	public void setConnexion(Connexion con) {
 		this.con = con;
 	}
-	public ModuleAbstract getModuleAbstract() {
+	public ModuleAbstract getMod() {
 		return this.mod;
 	}
-	public int getIPort() {
+	public int getIdPort() {
 		return this.idPort;
 	}
 	
