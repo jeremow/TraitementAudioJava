@@ -24,6 +24,14 @@ public class CommunicationPort {
 	public void setConnexion(Connexion con) {
 		this.con = con;
 	}
+	public ModuleAbstract getModuleAbstract() {
+		return this.mod;
+	}
+	public int getIPort() {
+		return this.idPort;
+	}
+	
+	
 	
 	public boolean isConnected() {
 		return con != null ;
